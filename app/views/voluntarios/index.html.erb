@@ -137,19 +137,17 @@
   <thead>
     <tr>
     <th><%= sort_link(@search, :contacto, "Tipo de contacto") %></th>
+    <th><%= sort_link(@search, :numero_registro, "N. de registro") %></th>
     <th><%= sort_link(@search, :nombre, "Nombre") %></th>
     <th><%= sort_link(@search, :apellido, "Apellido") %></th>
     <th><%= sort_link(@search, :fecha_solicitud, "Fecha de solicitud") %></th>
     <th><%= sort_link(@search, :fecha_autorizacion, "Fecha de autorización") %></th>
-    <th><%= sort_link(@search, :numero_registro, "N. de registro") %></th>
+    <th><%= sort_link(@search, :correo_electronico, "Email") %></th> 
+    <th><%= sort_link(@search, :telefono, "Teléfono") %></th>
+    <th><%= sort_link(@search, :colonia, "Institución") %></th>
     <th><%= sort_link(@search, :estado, "Estado") %></th>
     <th><%= sort_link(@search, :municipio, "Municipio") %></th>
     <th><%= sort_link(@search, :localidad, "Localidad") %></th>
-    <th><%= sort_link(@search, :colonia, "Colonia") %></th>
-    <th><%= sort_link(@search, :correo_electronico, "Email") %></th> 
-    <th><%= sort_link(@search, :telefono, "Teléfono") %></th>
-    <th><%= sort_link(@search, :sub_grupos, "Sub grupos") %></th>
-    <th><%= sort_link(@search, :obra_publica, "Obra pública") %></th>
     <th><%= sort_link(@search, :status, "Status") %></th>
     <th><%= sort_link(@search, :attachment, "Archivo") %></th>
 
@@ -162,19 +160,19 @@
     <% @voluntarios.each do |voluntario| %>
       <tr>
         <td><%= voluntario.contacto %></td>
+        <td><%= voluntario.numero_registro %></td>
         <td><%= voluntario.nombre %></td>
         <td><%= voluntario.apellido %></td>
         <td><%= voluntario.fecha_solicitud %></td>
         <td><%= voluntario.fecha_autorizacion %></td>
-        <td><%= voluntario.numero_registro %></td>
+        <td><%= voluntario.correo_electronico %></td>
+        <td><%= voluntario.telefono %></td>
+        <td><%= voluntario.colonia %></td>
         <td><%= voluntario.estado %></td>
         <td><%= voluntario.municipio %></td>
         <td><%= voluntario.localidad %></td>
-        <td><%= voluntario.colonia %></td>
-        <td><%= voluntario.correo_electronico %></td>
-        <td><%= voluntario.telefono %></td>
-        <td><%= voluntario.sub_grupos %></td>
-        <td><%= voluntario.obra_publica %></td>
+       
+        
         <td><%= voluntario.status %></td>
         <td><%= link_to "", voluntario.attachment_url, class:" glyphicon glyphicon-cloud-download" %></td>
         

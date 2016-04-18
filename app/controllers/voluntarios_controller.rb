@@ -1,11 +1,12 @@
 class VoluntariosController < ApplicationController
   before_action :set_voluntario, only: [:show, :edit, :update, :destroy]
-
+http_basic_authenticate_with :name => "admin", :password => "trinitaria"
   # GET /voluntarios
   # GET /voluntarios.json
   def index
     @search = Voluntario.search(params[:q])
     @voluntarios = @search.result.paginate(:page => params[:page], per_page: 10)
+
   
   end
 
@@ -72,6 +73,6 @@ class VoluntariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voluntario_params
-      params.require(:voluntario).permit(:contacto, :fecha_solicitud, :fecha_autorizacion, :numero_registro, :nombre, :apellido, :estado, :municipio, :localidad, :colonia, :correo_electronico, :telefono, :sub_grupos, :obra_publica, :status, :attachment, :comentarios)
+      params.require(:voluntario).permit(:contacto, :fecha_solicitud, :fecha_autorizacion, :numero_registro, :nombre, :apellido, :estado, :municipio, :localidad, :colonia, :correo_electronico, :telefono, :status, :attachment, :comentarios)
     end
 end

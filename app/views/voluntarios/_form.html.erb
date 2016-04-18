@@ -13,33 +13,35 @@
       </ul>
     </div>
   <% end %>
+   <% contacto = {
+      'Promotor voluntario' => 'Promotor voluntario', 'Enlace' => 'Enlace'} %>
  
-  <% contacto = {
-      'Promotores voluntarios' => 'Promotores voluntarios', 'Promotores capacitantes' => 'Promotores capacitantes'} %>
-
-
-      
-    
    
     <%= f.select :contacto, contacto, label: "Tipo de contacto", control_col: "col-sm-2" %>
-  
-   
-    
-    <%= f.date_select :fecha_solicitud, label: "Fecha de solicitud", control_col: "col-sm-2" %>
+  <%= f.number_field :numero_registro, label: "Número de registro", control_col: "col-sm-2" %>
+ <%= f.text_field :nombre, label: "Nombre", placeholder: "Nombre", control_col: "col-sm-2" %>
+ <%= f.text_field :apellido, label: "Apellido", placeholder: "Apellido", control_col: "col-sm-2" %>
+ <%= f.date_select :fecha_solicitud, label: "Fecha de solicitud", control_col: "col-sm-2" %>
+ <%= f.date_select :fecha_autorizacion, label: "Fecha de autorización", control_col: "col-sm-2" %>
 
-    <%= f.date_select :fecha_autorizacion, label: "Fecha de autorización", control_col: "col-sm-2" %>
-   
-    <%= f.number_field :numero_registro, label: "Número de registro", control_col: "col-sm-2" %>
- 
-  
-    <%= f.text_field :nombre, label: "Nombre", placeholder: "Nombre", control_col: "col-sm-2" %>
+    <%= f.text_field :correo_electronico, label: "Email", placeholder: "Email", control_col: "col-sm-2" %>
     
+    <%= f.number_field :telefono, label: "Teléfono", placeholder: "Teléfono", control_col: "col-sm-2" %>
 
-    <%= f.text_field :apellido, label: "Apellido", placeholder: "Apellido", control_col: "col-sm-2" %>
+    <%= f.text_field :colonia, label: "Institución", placeholder: "Institución", control_col: "col-sm-2" %>
+     <% status = {
+      'Activo' => 'Activo', 'Inactivo' => 'Inactivo'} %>
+
+    <%= f.select :status,status, label: "Status",  control_col: "col-sm-2"%>
+ <blockquote>
+ <strong>Lugar de creación</strong>
+ </blockquote>  
+    
     <% estado ={'Aguascalientes' => 'Aguascalientes', 'Baja California' => 'Baja California', 'Baja California Sur' => 'Baja California Sur', 'Campeche' => 'Campeche', 'Chiapas' => 'Chiapas' , 'Chiapas' => 'Chiapas', 'Chiapas' => 'Chiapas', 'Chiapas' => 'Chiapas', 'Chihuahua' => 'Chihuahua', 'Coahuila' => 'Coahuila', 'Colima' => 'Colima', 'Distrito Federal' => 'Ciudad de México', 'Ciudad de México' => 'Distrito Federal', 'Distrito Federal' => 'Distrito Federal', 'Distrito Federal' => 'Distrito Federal', 'Durango' => 'Durango', 'Estado de México' => 'Estado de México', 'Guanajuato' => 'Guanajuato', 'Guerrero' => 'Guerrero', 'Hidalgo' => 'Hidalgo', 'Jalisco' => 'Jalisco', 'Michoacán' => 'Michoacán', 'Morelos' => 'Morelos', 'Nayarit' => 'Nayarit', 'Nuevo León' => 'Nuevo León', 'Oaxaca' => 'Oaxaca', 'Puebla' => 'Puebla', 'Querétaro' => 'Querétaro', 'Quintana Roo' => 'Quintana Roo', 'Sinaloa' => 'Sinaloa', 'Sonora' => 'Sonora', 'Tabasco' => 'Tabasco', 'Tamaulipas' => 'Tamaulipas', 'Tlaxcala' => 'Tlaxcala', 'Veracruz' => 'Veracruz', 'Yucatán' => 'Yucatán', 'Zacatecas' => 'Zacatecas'} %>    
     <%= f.select :estado, estado, label: "Estado", placeholder: "Estado", control_col: "col-sm-2" %>
    
     <%= f.text_field :municipio, label: "Municipio", placeholder: "Municipio", control_col: "col-sm-2", list: "muni" %>
+
      <datalist id="muni">
     <option value="Abalá">
 <option value="Abasolo">
@@ -2502,26 +2504,13 @@
   </datalist>
    
     <%= f.text_field :localidad, label: "Localidad", placeholder: "Localidad", control_col: "col-sm-2" %>
-    
-    <%= f.text_field :colonia, label: "Colonia", placeholder: "Colonia", control_col: "col-sm-2" %>
-    
-    <%= f.text_field :correo_electronico, label: "Email", placeholder: "Email", control_col: "col-sm-2" %>
-    
-    <%= f.number_field :telefono, label: "Teléfono", placeholder: "Teléfono", control_col: "col-sm-2" %>
-    
-    <% sub_grupos ={
-      
- 'Acción 1' => ['Cemento'], 'Acción 2' =>  [['Mortero']], 'Acción 3' =>  [['Láminas']], 'Acción 4' =>  [['Pintura']], 'Acción 5' =>  ['Tinaco', 'Cisternas', 'Biodigestores', 'Registro de lodos', 'Bebederos', 'Filtros', 'Silos', 'Tolvas', 'Bombas/Hidroneumáticos'], 'Acción 6' =>  [['Aspersoras']], 'Acción 7' =>  [['Calentadores solares']], 'Acción 8' =>  [['Baños Ecológicos']], 'Acción 9' =>  [['Huertos de Traspatio']], 'Acción 10' =>  [['Mejoramiento de vivienda']], 'Acción 11' =>  [['Mejoramiento de pintura en casa habitación']], 'Acción 12' =>  [['Mejoramiento de escuelas']], 'Acción 13' =>  [['Calzado escolar']]} %>    
 
-    <%= f.select :sub_grupos, sub_grupos, label: "Tipo de contacto", control_col: "col-sm-2" %>
     
-    <%= f.text_field :obra_publica, label: "Obra pública", placeholder: "Obra pública", control_col: "col-sm-2" %>
-   
+    
+    
+     
   
-  <% status = {
-      'Activo' => 'Activo', 'Inactivo' => 'Inactivo'} %>
-
-    <%= f.select :status,status, label: "Status",  control_col: "col-sm-2"%>
+ 
   
   
     
