@@ -11,7 +11,7 @@
 
 <div class="form-group">
   <%= f.label :contacto_cont, "Tipo de Contacto" %>       
-  <%= f.select :contacto, [["Promotores voluntarios", "Promotores voluntarios"], ["Promotores capacitantes", "Promotores capacitantes"]], { :prompt => "Elegir" }, { class: "form-control" } %>
+  <%= f.select :contacto_cont, [["Promotor voluntario", "Promotor voluntario"], ["Enlace", "Enlace"]], { :prompt => "Elegir" }, { class: "form-control" } %>
   </div>
 </div>
 
@@ -81,7 +81,7 @@
   
       <%= f.label :status_cont, "Status" %>
     
-    <%= f.select :status_cont, [["Activo", "Activo"], ["Inactivo", "Inactivo"]], {:prompt => "Elegir"}, { class: "form-control" } %>
+    <%= f.select :status_cont, [["Inactivo", "Inactivo"], ["Aprobado", "Aprobado"]], { :prompt => "Elegir" }, { class: "form-control" } %>
     </div>
 
 </div>
@@ -93,7 +93,7 @@
 <div class="col-lg-3">
     <%= f.label :fecha_solicitud_cont, "Fecha de Solicitud" %>
    </br>
-    <%= f.date_select :fecha_solicitud, {:prompt => { :day => 'Día', :month => 'Mes', :year => 'Año' }}, {:class => 'form-control date-select',}  %>
+    <%= f.date_select :fecha_solicitud_cont, {:prompt => { :day => 'Día', :month => 'Mes', :year => 'Año' }}, {:class => 'form-control date-select',}  %>
 </div>
 
 
@@ -113,7 +113,11 @@
   <div class=" col-lg-1">
 
   <%= f.submit class: 'btn btn-primary btn-lg' %></div>
+ 
+  <div class="col-lg-1">
+    <%= f.submit "Reset", :type => "reset", class: 'btn btn-primary btn-lg' %>
   </div>
+   </div>
 </div>
   
 
@@ -137,14 +141,20 @@
   <thead>
     <tr>
     <th><%= sort_link(@search, :contacto, "Tipo de contacto") %></th>
-    <th><%= sort_link(@search, :numero_registro, "N. de registro") %></th>
+    
     <th><%= sort_link(@search, :nombre, "Nombre") %></th>
     <th><%= sort_link(@search, :apellido, "Apellido") %></th>
+    <th><%= sort_link(@search, :fecha_Registro, "Fecha de registro") %></th>
     <th><%= sort_link(@search, :fecha_solicitud, "Fecha de solicitud") %></th>
     <th><%= sort_link(@search, :fecha_autorizacion, "Fecha de autorización") %></th>
+    
     <th><%= sort_link(@search, :correo_electronico, "Email") %></th> 
     <th><%= sort_link(@search, :telefono, "Teléfono") %></th>
     <th><%= sort_link(@search, :colonia, "Institución") %></th>
+    <th><%= sort_link(@search, :programa, "Programa") %></th>
+    <th><%= sort_link(@search, :aportacion_cmt, "Aportacion Cmt") %></th>
+    <th><%= sort_link(@search, :aportacion_beneficiario, "Aportacion beneficiaio") %></th>
+    <th><%= sort_link(@search, :validacionincentivos, "Validacion incentivos") %></th>
     <th><%= sort_link(@search, :estado, "Estado") %></th>
     <th><%= sort_link(@search, :municipio, "Municipio") %></th>
     <th><%= sort_link(@search, :localidad, "Localidad") %></th>
@@ -160,21 +170,26 @@
     <% @voluntarios.each do |voluntario| %>
       <tr>
         <td><%= voluntario.contacto %></td>
-        <td><%= voluntario.numero_registro %></td>
+    
         <td><%= voluntario.nombre %></td>
         <td><%= voluntario.apellido %></td>
+         <td><%= voluntario.fecha_registro %></td>
         <td><%= voluntario.fecha_solicitud %></td>
-        <td><%= voluntario.fecha_autorizacion %></td>
+        <td><%= voluntario.fecha_autorizacion %></td>       
         <td><%= voluntario.correo_electronico %></td>
         <td><%= voluntario.telefono %></td>
         <td><%= voluntario.colonia %></td>
+        <td><%= voluntario.programa %></td>
+        <td><%= voluntario.aportacion_cmt %></td>
+        <td><%= voluntario.aportacion_beneficiario %></td>
+        <td><%= voluntario.validacionincentivos %></td>
         <td><%= voluntario.estado %></td>
         <td><%= voluntario.municipio %></td>
         <td><%= voluntario.localidad %></td>
        
         
         <td><%= voluntario.status %></td>
-        <td><%= link_to "", voluntario.attachment_url, class:" glyphicon glyphicon-cloud-download" %></td>
+        <td><%= link_to "", voluntario.attachment_url, class:" glyphicon glyphicon-cloud-download" if voluntario.attachment? %></td>
         
         <td><%= link_to '', voluntario, class:"glyphicon glyphicon-eye-open" %></td>
         <td><%= link_to  edit_voluntario_path(voluntario), class:"glyphicon glyphicon-pencil" do  %>

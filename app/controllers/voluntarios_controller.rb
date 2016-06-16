@@ -73,6 +73,6 @@ http_basic_authenticate_with :name => "admin", :password => "trinitaria"
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voluntario_params
-      params.require(:voluntario).permit(:contacto, :fecha_solicitud, :fecha_autorizacion, :numero_registro, :nombre, :apellido, :estado, :municipio, :localidad, :colonia, :correo_electronico, :telefono, :status, :attachment, :comentarios)
+      params.require(:voluntario).permit(:contacto, :fecha_solicitud, :fecha_autorizacion, :numero_registro, :nombre, :apellido, :estado, :municipio, :localidad, :colonia, :correo_electronico, :telefono, :status, :attachment, :comentarios, :validacionincentivos, :fecha_registro, :programa, :aportacion_cmt, :aportacion_beneficiario)
     end
 end

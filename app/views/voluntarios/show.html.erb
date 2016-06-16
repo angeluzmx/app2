@@ -1,102 +1,132 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12">
-<blockquote>
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Contacto:</strong>
-  <%= @voluntario.contacto %>
-</p>
-</blockquote>
-<p><blockquote>
-  <strong>Nombre:</strong>
-  <%= @voluntario.nombre %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Apellido:</strong>
-  <%= @voluntario.apellido %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Fecha solicitud:</strong>
-  <%= @voluntario.fecha_solicitud %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Fecha autorizacion:</strong>
-  <%= @voluntario.fecha_autorizacion %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Numero registro:</strong>
-  <%= @voluntario.numero_registro %>
-</p>
-</blockquote>
-<blockquote>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @voluntario.estado %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Municipio:</strong>
-  <%= @voluntario.municipio %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Localidad:</strong>
-  <%= @voluntario.localidad %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Colonia:</strong>
-  <%= @voluntario.colonia %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Correo electronico:</strong>
-  <%= @voluntario.correo_electronico %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Telefono:</strong>
-  <%= @voluntario.telefono %>
-</p>
-</blockquote>
-
-<blockquote>
-<p>
-  <strong>Status:</strong>
-  <%= @voluntario.status %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Attachment:</strong>
-  <%= @voluntario.attachment %>
-</p>
-</blockquote>
-<blockquote>
-<p>
-  <strong>Comentarios:</strong>
-  <%= @voluntario.comentarios %>
-</p>
-</blockquote>
-
-
-<%= link_to 'Edit', edit_voluntario_path(@voluntario), class: 'btn btn-primary' %> 
-<%= link_to 'Back', voluntarios_path, class: 'btn btn-primary'%>
+<h2><b>Beneficiario:</b><%= @voluntario.nombre %> <%= @voluntario.apellido %></h2>
 </div>
+<div class="col-lg-12">
+<%= link_to 'Editar', edit_voluntario_path(@voluntario), class: 'btn btn-primary' %> 
+<%= link_to 'Atras', voluntarios_path, class: 'btn btn-primary'%>
 </div>
+<div class="col-lg-7  custyle">
+    <table class="table table-striped custab">
+<thead> 
+<tr>
+  <th >Campos</th>
+  <th >Información</th>
+</tr>
+</thead>
+
+    <tbody>
+    <tr>
+        <th class="thshow">Contacto:</th>
+        <td class="tdshow"><%= @voluntario.contacto %></td>
+
+      </tr> 
+       <tr>
+        <th class="thshow">Nombre:</th>
+        <td class="tdshow"><%= @voluntario.nombre %></td>
+
+      </tr>
+      <tr>
+        <th class="thshow">Apellido:</th>
+        <td class="tdshow"><%= @voluntario.apellido %></td>
+      </tr>
+      <tr>
+        <th class="thshow">Numero registro:</th>
+        <td class="tdshow"> <%= @voluntario.numero_registro %></td>
+      </tr>
+      <tr>  
+         <th class="thshow"> Fecha solicitud</th>
+         <td class="tdshow"><%= @voluntario.fecha_solicitud %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Fecha autorizacion:</th>
+          <td class="tdshow"><%= @voluntario.fecha_autorizacion %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Estado</th>
+          <td class="tdshow"><%= @voluntario.estado %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Municipio</th>
+          <td class="tdshow"><%= @voluntario.municipio %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Localidad:</th>
+          <td class="tdshow"><%= @voluntario.localidad %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Institución</th>
+          <td class="tdshow"> <%= @voluntario.colonia %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Correo electronico:</th>
+          <td class="tdshow"><%= @voluntario.correo_electronico %></td>
+      </tr>
+       <tr>  
+          <th class="thshow"> Telefono: </th>
+          <td class="tdshow"><%= @voluntario.telefono %></td>
+      </tr>
+
+         <tr>  
+          <th class="thshow"> Programa: </th>
+          <td class="tdshow"><%= @voluntario.programa %></td>
+      </tr>
+      <tr>  
+          <th class="thshow">Aportación CMT: </th>
+          <td class="tdshow"><%= @voluntario.aportacion_cmt %>  </td>
+      </tr>
+       <tr>  
+          <th class="thshow">Aportación beneficiario: </th>
+          <td class="tdshow"><%= @voluntario.aportacion_beneficiario %>  </td>
+      </tr>
+       <tr>  
+          <th class="thshow">Validacion incentivos: </th>
+          <td class="tdshow"><%= @voluntario.validacionincentivos %>  </td>
+      </tr>
+       <tr>  
+          <th class="thshow">Status: </th>
+          <td class="tdshow"><%= @voluntario.status %>  </td>
+      </tr>
+       <tr>  
+          <th class="thshow">Attachment: </th>
+          <td class="tdshow"><%= link_to "", @voluntario.attachment_url, class:" glyphicon glyphicon-cloud-download"  if @voluntario.attachment?%>  </td>
+      </tr>
+       <tr>  
+          <th class="thshow">Comentarios:  </th>
+          <td class="tdshow"><%= @voluntario.comentarios %>  </td>
+      </tr>
+   
+
+
+
+
+
+
+
+
+
+    </tbody>
+  
+  
+
+
+
+    
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
 </div>

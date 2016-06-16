@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415232405) do
+ActiveRecord::Schema.define(version: 20160609223222) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -56,11 +56,16 @@ ActiveRecord::Schema.define(version: 20160415232405) do
     t.string   "correo_electronico"
     t.integer  "telefono"
     t.string   "status"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "contacto"
     t.string   "attachment"
     t.text     "comentarios"
+    t.string   "validacionincentivos"
+    t.date     "fecha_registro"
+    t.string   "programa"
+    t.decimal  "aportacion_cmt"
+    t.decimal  "aportacion_beneficiario"
   end
 
 end
